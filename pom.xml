@@ -104,6 +104,17 @@
             <artifactId>spring-boot-starter-validation</artifactId>
             <version>2.6.4</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <!-- kiem tra xem phai file anh hay khong -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
