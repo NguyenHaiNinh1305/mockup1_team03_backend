@@ -14,6 +14,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     public final UserRepository userRepository;
+    private Long userId;
+    private String pass;
 
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -34,5 +36,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUserName(userName);
     }
 
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User update(User user) {
+        return userRepository.save(user);
+    }
 
 }
