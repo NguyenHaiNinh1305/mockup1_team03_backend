@@ -1,5 +1,6 @@
 package com.itsol.recruit.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
@@ -33,6 +34,9 @@ public class User{
     @Column(name = "password")
     String password;
 
+    @Column(name = "cccd")
+    String cccd;
+
     @Column(name = "phone_number")
     String phoneNumber;
 
@@ -42,10 +46,17 @@ public class User{
     @Column(name = "avatar")
     String avatarName;
 
+    @Column(name = "salary")
+    long salary;
+
     @Column(name = "gender")
     String gender;
 
+    @Column(name = "position")
+    String position;
+
     @Column(name = "birth_day")
+    @JsonFormat(pattern="yyyy-MM-dd")
     Date birthDay;
 
     @Column(name = "is_delete")
@@ -63,5 +74,9 @@ public class User{
     @Column(name = "activate")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean isActive;
+
+    @ManyToOne
+    @JoinColumn(name = "unit_id")
+    private Units unit;
 
 }
