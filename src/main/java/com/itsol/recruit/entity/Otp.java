@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,6 +29,5 @@ public class Otp {
 
     @Column(name ="issue_at")
     private Long issueAt;
-    @Column(name = "status")
-    boolean status;
+
 }

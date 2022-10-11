@@ -1,6 +1,7 @@
 package com.itsol.recruit.rest.controller;
 
 import com.itsol.recruit.entity.Otp;
+import com.itsol.recruit.entity.ResponseObject;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.service.EmailSenderService;
 import com.itsol.recruit.service.OtpService;
@@ -8,9 +9,12 @@ import com.itsol.recruit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import java.util.Date;
 import java.util.Random;
 
 @RestController
@@ -27,7 +31,7 @@ public class Fogot_pass_RestController {
     OtpService otpService;
 
     @GetMapping ("{email}")
-    public User sendMail(@PathVariable("email") String email) {
+    public ResponseEntity<ResponseObject> sendMail(@PathVariable("email") String email) {
         for (User x : userService.findAll()
         ) {
             if (x.getEmail().equals(email) == true && x.isActive() == true) {
@@ -36,15 +40,19 @@ public class Fogot_pass_RestController {
 
                 Otp ot = new Otp();
                 ot.setCode(otp);
-                ot.setIssueAt(System.currentTimeMillis());
+                ot.setIssueAt(System.currentTimeMillis()+30000);
                 ot.setUser(x);
                 otpService.save(ot);
                 emailSenderService.sendSimpleEmail(email, "OTP code", "Your OTP code is: " + otp);
-                return x;
+                return ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject(HttpStatus.OK,"Gửi OTP thành công",x)
+                );
             }
 
         }
-        return null;
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ResponseObject(HttpStatus.BAD_REQUEST,"Email không tồn tại","")
+        );
     }
 
 
