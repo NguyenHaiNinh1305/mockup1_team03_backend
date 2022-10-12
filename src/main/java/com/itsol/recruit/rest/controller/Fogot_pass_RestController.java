@@ -40,12 +40,12 @@ public class Fogot_pass_RestController {
 
                 Otp ot = new Otp();
                 ot.setCode(otp);
-                ot.setIssueAt(System.currentTimeMillis()+30000);
+                ot.setIssueAt(System.currentTimeMillis()+300000);
                 ot.setUser(x);
                 otpService.save(ot);
                 emailSenderService.sendSimpleEmail(email, "OTP code", "Your OTP code is: " + otp);
                 return ResponseEntity.status(HttpStatus.OK).body(
-                        new ResponseObject(HttpStatus.OK,"Gửi OTP thành công",x)
+                        new ResponseObject(HttpStatus.OK,"Gửi OTP thành công. Hết hạn sau 5p",x)
                 );
             }
 
