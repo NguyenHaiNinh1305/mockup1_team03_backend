@@ -20,4 +20,8 @@ public interface UserService {
     int updateUserAvatarName(String avatarName,
                              long id);
 
+    public List<User> findAll();
+
+    public User update(User user);
+
 }

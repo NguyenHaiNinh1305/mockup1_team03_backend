@@ -50,7 +50,7 @@ public class AvataUserSevice implements IStorageSevice {
         throw new RuntimeException("failed to store empty file.");
     }
     if (!isImageFile(file)) {
-        throw new RuntimeException("You can only upload image");
+        throw new RuntimeException("You can only upload image(.png,.jpg,.jpeg,.bmp)");
     }
     // file chi co the nho hon 5mb
     float fileSizeInMegabytes = file.getSize() / 1_000_000.0f;
