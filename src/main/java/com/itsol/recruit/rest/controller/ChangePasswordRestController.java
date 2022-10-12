@@ -28,12 +28,12 @@ public class ChangePasswordRestController {
             u.setPassword(passwordEncoder.encode(pass));
             userService.update(u);
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject(HttpStatus.OK, "Thay đổi mật khẩu thành công", u)
+                    new ResponseObject(HttpStatus.OK.toString(), "Thay đổi mật khẩu thành công", u)
             );
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                    new ResponseObject(HttpStatus.BAD_REQUEST,"Thay đổi mật khẩu thất bại",""));
+                    new ResponseObject(HttpStatus.BAD_REQUEST.toString(),"Thay đổi mật khẩu thất bại",""));
         }
     }
 }

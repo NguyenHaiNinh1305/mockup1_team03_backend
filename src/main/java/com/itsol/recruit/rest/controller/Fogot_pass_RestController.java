@@ -45,13 +45,13 @@ public class Fogot_pass_RestController {
                 otpService.save(ot);
                 emailSenderService.sendSimpleEmail(email, "OTP code", "Your OTP code is: " + otp);
                 return ResponseEntity.status(HttpStatus.OK).body(
-                        new ResponseObject(HttpStatus.OK,"Gửi OTP thành công. Hết hạn sau 5p",x)
+                        new ResponseObject(HttpStatus.OK.toString(),"Gửi OTP thành công. Hết hạn sau 5p",x)
                 );
             }
 
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ResponseObject(HttpStatus.BAD_REQUEST,"Email không tồn tại","")
+                new ResponseObject(HttpStatus.BAD_REQUEST.toString(),"Email không tồn tại","")
         );
     }
 

@@ -22,11 +22,11 @@ public class OtpRestController {
         Otp otp = otpRepository.findByUserId(userId,code);
         if(otpRepository.findByUserId(userId,code) == null){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                    new ResponseObject(HttpStatus.BAD_REQUEST,"Mã OTP không đúng","")
+                    new ResponseObject(HttpStatus.BAD_REQUEST.toString(),"Mã OTP không đúng","")
             );
         } else if (otp.getIssueAt() <= new Date().getTime()){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                    new ResponseObject(HttpStatus.BAD_REQUEST, "Otp này đã hết hạn!", ""));
+                    new ResponseObject(HttpStatus.BAD_REQUEST.toString(), "Otp này đã hết hạn!", ""));
         }
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
