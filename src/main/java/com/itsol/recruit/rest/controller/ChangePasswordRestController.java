@@ -1,13 +1,16 @@
 package com.itsol.recruit.rest.controller;
 
+import com.itsol.recruit.entity.ResponseObject;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/changePassword")
+@RequestMapping("/api/changePassword")
 public class ChangePasswordRestController {
 
     @Autowired
@@ -19,9 +22,18 @@ public class ChangePasswordRestController {
     }
 
     @PutMapping("{id}")
-    public User update(@PathVariable("id") Long id, @RequestBody String pass) {
-        User u = userService.findById(id);
-        u.setPassword(passwordEncoder.encode(pass));
-        return userService.update(u);
+    public ResponseEntity<ResponseObject> update(@PathVariable("id") Long id, @RequestBody String pass) {
+        try {
+            User u = userService.findById(id);
+            u.setPassword(passwordEncoder.encode(pass));
+            userService.update(u);
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject(HttpStatus.OK.toString(), "Thay đổi mật khẩu thành công", u)
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    new ResponseObject(HttpStatus.BAD_REQUEST.toString(),"Thay đổi mật khẩu thất bại",""));
+        }
     }
 }
