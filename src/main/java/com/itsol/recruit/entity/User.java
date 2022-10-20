@@ -37,6 +37,10 @@ public class User{
     @Column(name = "cccd")
     String cccd;
 
+    //trình độ học vấn
+    @Column(name = "literacy")
+    String literacy;
+
     @Column(name = "phone_number")
     String phoneNumber;
 
@@ -54,6 +58,10 @@ public class User{
 
     @Column(name = "position")
     String position;
+
+    @Column(name = "is_leader")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    boolean isLeader;
 
     @Column(name = "birth_day")
     @JsonFormat(pattern="yyyy-MM-dd")
@@ -78,5 +86,7 @@ public class User{
     @ManyToOne
     @JoinColumn(name = "unit_id")
     private Units unit;
+
+
 
 }
