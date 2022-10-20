@@ -59,8 +59,8 @@ public class UserProfile {
                 return ResponseEntity.status(HttpStatus.OK)
                         .body(new ResponseObject("ok", "thanh cong", updateUser));
             }
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(new ResponseObject("ok", "thanh cong", mess));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ResponseObject("false", "thanh cong", mess));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(new ResponseObject("not_found", "khongthanh cong", ""));
