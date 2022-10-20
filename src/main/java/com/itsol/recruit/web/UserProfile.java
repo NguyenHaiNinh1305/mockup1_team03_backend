@@ -1,5 +1,6 @@
 package com.itsol.recruit.web;
 
+import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.entity.ResponseObject;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.service.IStorageSevice;
@@ -20,7 +21,7 @@ import java.util.regex.Pattern;
 
 
 @RestController
-@RequestMapping("api/public/user/user-profile")
+@RequestMapping(Constants.Api.Path.PUBLIC)
 public class UserProfile {
 
     @Autowired
@@ -32,39 +33,41 @@ public class UserProfile {
     @Autowired
     private IStorageSevice storageSevice;
 
-    @GetMapping(value = "/{userName}")
+    @GetMapping(value = "/user-profile/{userName}")
     public ResponseEntity<ResponseObject> findUserByUserName(@PathVariable String userName) {
         User user;
+        System.out.println(userName);
         try {
             user = userService.findUserByUserName(userName);
+            System.out.println(userName);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(new ResponseObject("not found", "khong tim thay user", ""));
         }
-//        user.setPassword(null);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseObject("ok", "thanh cong", user));
 
     }
 
-    @PutMapping()
+    @PutMapping("/user-profile")
     public ResponseEntity<ResponseObject> updateUserProfile(@RequestBody User updateUser) {
 
         try {
             List<String> mess = this.validate(updateUser);
             if(mess.isEmpty()){
+                userService.save(updateUser);
                 return ResponseEntity.status(HttpStatus.OK)
                         .body(new ResponseObject("ok", "thanh cong", updateUser));
             }
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(new ResponseObject("ok", "thanh cong", mess));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ResponseObject("false", "thanh cong", mess));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(new ResponseObject("not_found", "khongthanh cong", ""));
         }
     }
 
-    @PutMapping("/new-pass")
+    @PutMapping("/user-profile/new-pass")
     public ResponseEntity<ResponseObject> updateUserPass(@RequestBody User updateUser) {
         try {
             if(updateUser.getPassword() != null && validatePass(updateUser.getPassword())){
@@ -83,7 +86,7 @@ public class UserProfile {
         }
     }
 
-    @PostMapping("new-avata/{id}")
+    @PostMapping("/user-profile/new-avata/{id}")
     public ResponseEntity<ResponseObject> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable long id) {
         try {
             String generatedFileName = storageSevice.storaFile(file);
@@ -98,7 +101,7 @@ public class UserProfile {
         }
     }
 
-    @GetMapping("avata/{fileName:.+}")
+    @GetMapping("/user-profile/avata/{fileName:.+}")
     public ResponseEntity<byte[]> readDetailFile(@PathVariable String fileName) {
         try {
             byte[] bytes = storageSevice.readFileContent(fileName);

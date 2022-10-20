@@ -1,5 +1,6 @@
 package com.itsol.recruit.service.impl;
 
+import com.itsol.recruit.entity.Units;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.UserService;
@@ -45,9 +46,12 @@ public class UserServiceImpl implements UserService {
     public User update(User user) {
         return userRepository.save(user);
     }
+
+    @Override
     public User save(User user) {
         return userRepository.save(user);
     }
+
 
     @Override
     public int updateUserPassword(String userName, String password) {
@@ -57,6 +61,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateUserAvatarName(String avatarName, long id) {
         return userRepository.updateUserAvatarName(avatarName,id);
+    }
+
+    @Override
+    public User getUserFromUnit(Boolean isLeader, Units unit) {
+        return userRepository.getUserFromUnit(isLeader,unit);
     }
 
 

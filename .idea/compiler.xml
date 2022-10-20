@@ -8,13 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="recruit" />
-        <module name="mockup1_team03_backend" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="mockup1_team03_backend" options="-parameters" />
       <module name="recruit" options="-parameters" />
     </option>
   </component>
