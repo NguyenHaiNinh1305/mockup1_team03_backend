@@ -24,12 +24,14 @@ public class Status {
         String name;
 
         /*
-        * id  1 : new (chờ xét duyệt)
-        * id  2 : checked (checked  đang xét duyệt)
+        * id  1 : new (chờ xét duyệt, vừa khởi tạo)
+        * id  2 : checked ( đang xét duyệt)
         * id  3 : agree  (đồng ý)
         * id  4 : refuse (bị từ chối)
-        * id  5 : cancel (huy)
+        * id  5 : cancel (huy, chấm dứt hợp đồng)
         * id  6 : succeed(thành công)
+        * id  7 : active
+        * id  8 : deactivate
         * */
 
         @Override
