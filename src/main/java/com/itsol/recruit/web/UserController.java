@@ -6,7 +6,10 @@ import com.itsol.recruit.entity.ResponseObject;
 import com.itsol.recruit.entity.Role;
 import com.itsol.recruit.entity.Units;
 import com.itsol.recruit.entity.User;
+import com.itsol.recruit.repository.RoleRepository;
 import com.itsol.recruit.repository.UserRepository;
+import com.itsol.recruit.service.EmailSenderService;
+import com.itsol.recruit.service.RoleService;
 import com.itsol.recruit.service.UnitService;
 import com.itsol.recruit.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -21,6 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.beans.Beans;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -35,6 +39,13 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    RoleService roleService;
+
+    @Autowired
+    EmailSenderService emailSenderService;
+
 
 
     public final UserService userService;
@@ -61,8 +72,8 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity<ResponseObject> createNewUser(@RequestBody User user) {
-        System.out.println();
+    public ResponseEntity<ResponseObject> createNewUser(@RequestParam("idUser") Long id, @RequestBody User user) {
+        System.out.println(id);
         if (userService.findUserByUserName(user.getUserName()) != null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                     new ResponseObject(HttpStatus.BAD_REQUEST.toString(), "Username đã tồn tại", ""));
@@ -81,6 +92,40 @@ public class UserController {
         }
         String newPass = user.getPassword();
         user.setPassword(passwordEncoder.encode(newPass));
+        if (user.getUnit().getId() == 3 && user.isLeader() == true) {
+            user.getRoles().add(roleService.findById(5l));
+        } else if (user.getUnit().getId() == 3 && user.isLeader() == false) {
+            user.getRoles().add(roleService.findById(4l));
+        } else if (user.getUnit().getId() != 3 && user.isLeader() == true) {
+            user.getRoles().add(roleService.findById(3l));
+        } else {
+            user.getRoles().add(roleService.findById(2l));
+        }
+
+        List<User> userAdmin = userService.getAllUser();
+        List<User> listUserEmail = new ArrayList<>();
+        for (User x : userAdmin
+        ) {if(x.getRoles().stream().anyMatch(role -> (role.getId()==1 || role.getId()==5))==true){
+            System.out.println(".......");
+            listUserEmail.add(x);
+        }
+
+        }
+        System.out.println(listUserEmail);
+
+
+        User userCreate = userService.findById(id);
+        for (Role role : userCreate.getRoles()
+        ) {
+            if (role.getId() == 3) {
+               for(int i=0;i<listUserEmail.size();i++){
+                   emailSenderService.sendSimpleEmail(listUserEmail.get(i).getEmail(),
+                           "Thông báo việc thêm nhân sự","DM " + userCreate.getName() +"đã thêm nhân viên " + "" +
+                                   user.getName() +"vào hệ thống của công ty! Vui lòng phê duyệt ");
+               }
+            }
+
+        }
         userService.save(user);
         return ResponseEntity.ok().body(new ResponseObject(HttpStatus.OK.toString(), "Tạo user mới thành công", ""));
     }
@@ -141,9 +186,9 @@ public class UserController {
             if (page < 0) {
                 page = 0;
             }
-            if (sortByValue.equals("undefined")) {
-                sortByValue = "name";
-            }
+//            if (sortByValue.equals("undefined")) {
+//                sortByValue = "name";
+//            }
             if (descAsc.equals("desc")) {
                 pageable = PageRequest.of(page, 10, Sort.by(sortByValue).descending());
             } else {
@@ -159,12 +204,12 @@ public class UserController {
                 return ResponseEntity.status(HttpStatus.OK).body(
                         new ResponseObject(HttpStatus.OK.toString(), "Tìm thấy thành công",
                                 userService.sortByKey(pageable, dto.getName(), dto.getEmail(), dto.getLiteracy(), dto.getPosition(),
-                                        dto.getSalary(), dto.getBirthDay(), dto.getUnit(),null)));
+                                        dto.getSalary(), dto.getBirthDay(), dto.getUnit(), null)));
             } else if (listRole.contains("ROLE_DM")) {
                 return ResponseEntity.status(HttpStatus.OK).body(
                         new ResponseObject(HttpStatus.OK.toString(), "Tìm thấy thành công",
                                 userService.sortByKey(pageable, dto.getName(), dto.getEmail(), dto.getLiteracy(), dto.getPosition(),
-                                        dto.getSalary(), dto.getBirthDay(), dto.getUnit(),u.getUnit())));
+                                        dto.getSalary(), dto.getBirthDay(), dto.getUnit(), u.getUnit())));
             }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                     new ResponseObject("false", "Không tìm thấy",
@@ -180,11 +225,20 @@ public class UserController {
     }
 
     @PutMapping("/user/deactivated/{id}")
-    public ResponseEntity<ResponseObject> deactivated(@PathVariable("id") Long id){
-        User u =userService.findById(id);
+    public ResponseEntity<ResponseObject> deactivated(@PathVariable("id") Long id) {
+        User u = userService.findById(id);
         u.setActive(false);
         userService.save(u);
         return ResponseEntity.ok().body(new ResponseObject(HttpStatus.OK.toString(), "Hủy kích hoạt thành công", ""));
+
+    }
+
+    @PutMapping("/user/activated/{id}")
+    public ResponseEntity<ResponseObject> activated(@PathVariable("id") Long id) {
+        User u = userService.findById(id);
+        u.setActive(true);
+        userService.save(u);
+        return ResponseEntity.ok().body(new ResponseObject(HttpStatus.OK.toString(), "kích hoạt thành công", ""));
 
     }
 
