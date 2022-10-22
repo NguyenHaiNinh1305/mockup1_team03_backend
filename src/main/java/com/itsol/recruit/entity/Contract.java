@@ -47,7 +47,12 @@ public class Contract {
     @Column(name ="note")
     String note;
 
+    //ngày hết hạn hợp hợp đồng
+    @Column(name = "Cancel_date")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    Date CancelDate;
 
-
+    @Column(name = "reason_Cancel")
+    String reasonCancel;
 
 }

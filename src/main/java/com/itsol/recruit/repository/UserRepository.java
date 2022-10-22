@@ -6,12 +6,15 @@ import com.itsol.recruit.repository.repoext.UserRepositoryExt;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -88,4 +91,8 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
             @Param("unit") Units unit,
             @Param("unitDm") Units unitDm
     );
+
+    @Query("SELECT u from  Users u where  u.unit = :unit and u.isLeader = :isLeader" )
+    User getUserFromUnit(@Param("isLeader") Boolean isLeader,
+                     @Param("unit") Units unit);
 }

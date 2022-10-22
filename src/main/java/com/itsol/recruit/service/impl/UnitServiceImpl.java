@@ -13,9 +13,15 @@ public class UnitServiceImpl implements UnitService {
 
     @Autowired
     UnitRepository unitRepository;
+
     @Override
     public List<Units> findAll() {
-        return unitRepository.findAll() ;
+        return unitRepository.findAll();
+    }
+
+    @Override
+    public List<Units> getAllUnit() {
+        return unitRepository.findAll();
     }
 
 }
