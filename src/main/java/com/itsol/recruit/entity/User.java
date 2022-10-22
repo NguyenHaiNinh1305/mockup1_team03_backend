@@ -38,6 +38,10 @@ public class User{
     @Column(name = "cccd")
     String cccd;
 
+    //trình độ học vấn
+    @Column(name = "literacy")
+    String literacy;
+
     @Column(name = "phone_number")
     String phoneNumber;
 
@@ -84,6 +88,7 @@ public class User{
     @JoinColumn(name = "unit_id")
     private Units unit;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,4 +101,5 @@ public class User{
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

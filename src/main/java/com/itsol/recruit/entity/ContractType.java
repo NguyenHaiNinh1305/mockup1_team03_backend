@@ -25,5 +25,4 @@ public class ContractType {
     @Column(name="status")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     boolean status;
-
 }
