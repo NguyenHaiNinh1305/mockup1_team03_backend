@@ -32,7 +32,7 @@ public class MailerCheckPointService {
     @Autowired
     ReviewCheckPointService reviewCheckPointService;
 
-//    @Scheduled(fixedRate = 15000)
+    //    @Scheduled(fixedRate = 15000)
     @Scheduled(cron = "0 0 9 * * ?")
     public void auToSendMailCheckPoint(){
         List<Contract> list = contractService.getAllContractActive();
@@ -47,8 +47,8 @@ public class MailerCheckPointService {
 
     private void checkUserCanCheckPoint(Contract contract){
         List<CheckPoint> userCheckPointList = checkPointService
-                                              .findCheckPointByAffectUser(contract.getUser()
-                                                                          , Sort.by("createDate").descending());
+                .findCheckPointByAffectUser(contract.getUser()
+                        , Sort.by("createDate").descending());
         // neu khong tìm thấy lịch sử checkpoint của user => lần đầu checkpoint
         if(userCheckPointList.isEmpty()){
             sendMailFirstCheckPoint(contract);
@@ -70,24 +70,24 @@ public class MailerCheckPointService {
                     System.out.println(e.getMessage());
                 }
             }
-             CheckPoint checkPoint = userCheckPointList.get(0);
+            CheckPoint checkPoint = userCheckPointList.get(0);
             if(checkPoint.getStatus().equals(new Status(1l,"new"))){
                 expirationDate.add(Calendar.DATE,21);
-                 year = calendar.get(Calendar.YEAR) - expirationDate.get(Calendar.YEAR);
-                 mouth = Math.abs(calendar.get(Calendar.MONTH) - expirationDate.get(Calendar.MONTH)) ;
-                 day = calendar.get(Calendar.DATE) - expirationDate.get(Calendar.DATE);
+                year = calendar.get(Calendar.YEAR) - expirationDate.get(Calendar.YEAR);
+                mouth = Math.abs(calendar.get(Calendar.MONTH) - expirationDate.get(Calendar.MONTH)) ;
+                day = calendar.get(Calendar.DATE) - expirationDate.get(Calendar.DATE);
                 System.out.println(expirationDate.get(Calendar.DATE) + "/ ngay tang" + expirationDate.get(Calendar.MONTH));
 
                 System.out.println("ngay hien tai " +calendar.get(Calendar.MONTH));
                 if(year == 0 && mouth == 0 && day == 0){
                     checkPoint.setStatus(new Status(2l,"checked"));
                     checkPointService.save(checkPoint);
-                try {
-                    notificationSendMailService.sendMailToManagerReview(checkPoint.getReviewCheckPoint()
-                            .getDivisionManager(),checkPoint.getAffectUser());
-                }catch (Exception e){
-                    System.out.println(e.getMessage());
-                }
+                    try {
+                        notificationSendMailService.sendMailToManagerReview(checkPoint.getReviewCheckPoint()
+                                .getDivisionManager(),checkPoint.getAffectUser());
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
 
                 }
             }
@@ -98,8 +98,8 @@ public class MailerCheckPointService {
     private void sendMailFirstCheckPoint(Contract contract) {
         List<Contract> userContractList = contractService.findContractByUser(contract.getUser());
         Set<String> listContractType = userContractList.stream()
-                                                       .map(c -> c.getContractType().getName())
-                                                       .collect(Collectors.toSet());
+                .map(c -> c.getContractType().getName())
+                .collect(Collectors.toSet());
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);

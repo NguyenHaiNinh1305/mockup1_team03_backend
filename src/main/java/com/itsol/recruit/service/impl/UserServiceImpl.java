@@ -4,9 +4,11 @@ import com.itsol.recruit.entity.Units;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.UserService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 
@@ -47,7 +49,21 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail1(email);
+    }
+
     @Override
+    public User findByPhoneNumber(String sdt) {
+        return userRepository.findByPhoneNumber(sdt);
+    }
+
+    @Override
+    public User findByCCCD(String cccd) {
+        return userRepository.findByCCCD(cccd);
+    }
+
+
     public User save(User user) {
         return userRepository.save(user);
     }
@@ -64,9 +80,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserFromUnit(Boolean isLeader, Units unit) {
-        return userRepository.getUserFromUnit(isLeader,unit);
+    public User findByUserName1(String userName) {
+        return userRepository.findByUName(userName);
     }
+
+    @Override
+    public Page<User> sortByKey(Pageable pageable, String name, String email, String literacy,
+                                String position, Long salary, Date birthDay, Units unit,   Units unitDm) {
+        return userRepository.findByKey(pageable, name, email, literacy, position, salary, birthDay, unit, unitDm);
+    };
+
+
+        @Override
+        public User getUserFromUnit(Boolean isLeader, Units unit) {
+            return userRepository.getUserFromUnit(isLeader,unit);
+        }
 
 
 }

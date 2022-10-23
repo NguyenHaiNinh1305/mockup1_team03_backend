@@ -32,8 +32,6 @@ public class Status {
         * id  6 : succeed(thành công)
         * id  7 : active
         * id  8 : deactivate
-        * id  9 : save ( Luu ban ghi khong submit)
-        * id 10 : submit
         * */
 
         @Override

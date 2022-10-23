@@ -1,7 +1,6 @@
 package com.itsol.recruit.service;
 
 import com.itsol.recruit.entity.CheckPoint;
-import com.itsol.recruit.entity.Transfer;
 import com.itsol.recruit.entity.User;
 import org.springframework.data.domain.Sort;
 

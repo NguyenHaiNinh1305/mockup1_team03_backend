@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReviewCheckPointServiceImpl implements ReviewCheckPointService {
 
-       @Autowired
-       ReviewCheckPointRepository reviewCheckPointRepository;
+    @Autowired
+    ReviewCheckPointRepository reviewCheckPointRepository;
 
-       @Override
-       public ReviewCheckPoint save(ReviewCheckPoint reviewCheckPoint) {
-              return reviewCheckPointRepository.save(reviewCheckPoint);
-       }
+    @Override
+    public ReviewCheckPoint save(ReviewCheckPoint reviewCheckPoint) {
+        return reviewCheckPointRepository.save(reviewCheckPoint);
+    }
 }

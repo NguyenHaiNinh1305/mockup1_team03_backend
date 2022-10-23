@@ -61,10 +61,10 @@ public class TransferController {
 
     @GetMapping("/transfer")
     public ResponseEntity<ResponseObject> getAllTransfer() {
-            List<Transfer> transfer = transferSevice.findAll();
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(new ResponseObject("ok", "Thành công"
-                            , transfer));
+        List<Transfer> transfer = transferSevice.findAll();
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("ok", "Thành công"
+                        , transfer));
     }
 
     private Sort.Direction getSortDirection(String direction) {
@@ -78,9 +78,9 @@ public class TransferController {
 
     @PutMapping("/transfer/page")
     public ResponseEntity<ResponseObject> getPageTransfer(@RequestParam int page
-                                                        , @RequestParam Long userID
-                                                        , @RequestParam int size
-                                                        , @RequestBody TransferSearchDTO transferSearchDTO) {
+            , @RequestParam Long userID
+            , @RequestParam int size
+            , @RequestBody TransferSearchDTO transferSearchDTO) {
         System.out.println("da vao");
         try {
             page =   page < 0? 0:page;
@@ -243,11 +243,11 @@ public class TransferController {
             Transfer updateTransfer = transferSevice.save(transfer);
             if (updateTransfer.getStatusTransfer().equals(new Status(4l, "refuse "))) {
                 User refuseUser = userService.findById(idUser);
-               notificationSendMailService.sendMailCancelTransfer(updateTransfer,refuseUser);
+                notificationSendMailService.sendMailCancelTransfer(updateTransfer,refuseUser);
             }
             if (transfer.getStatusTransfer().equals(new Status(2l, "checked"))) {
                 notificationSendMailService.sendMailToDmTransfer(updateTransfer
-                                           ,updateTransfer.getDivisionManagerUnitNew());
+                        ,updateTransfer.getDivisionManagerUnitNew());
             }
             return ResponseEntity.status(HttpStatus.OK)
                     .body(new ResponseObject("ok", "Update thành  công", updateTransfer));

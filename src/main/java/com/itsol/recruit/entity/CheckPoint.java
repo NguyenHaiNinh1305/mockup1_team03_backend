@@ -39,10 +39,6 @@ public class CheckPoint {
     Date createDate;
 
     @ManyToOne
-    @JoinColumn(name = "status_user_review")
-    Status statusUserReview;
-
-    @ManyToOne
     @JoinColumn(name = "status_id")
     Status status;
 
@@ -56,15 +52,18 @@ public class CheckPoint {
     @JoinColumn(name = "reviewCheck_Point_id")
     ReviewCheckPoint reviewCheckPoint;
 
-//    Thời gian hoàn thành công việc
+    @Column(name = "success_salary")
+    long successSalary;
+
+    //    Thời gian hoàn thành công việc
     @Column(name = "completion_time")
     int completionTime;
 
-//    Chất lượng hoàn thành công việc
+    //    Chất lượng hoàn thành công việc
     @Column(name = "performance_evaluation")
     String performanceEvaluation;
 
-//    Báo cáo trong dự án
+    //    Báo cáo trong dự án
     @Column(name = "project_report")
     String projectReport;
 
