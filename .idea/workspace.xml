@@ -5,141 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c882a02-b2a3-4367-ab77-758decf187f6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/recruit.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/dto/TransferSearchDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/CheckPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/CheckPointType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/ReviewCheckPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Transfer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/TransferRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/UnitsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/MailerCheckPointService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/TransferSevice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/TransferSeviceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/TransferController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/UnitController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/TransferSearchDTO$TransferSearchDTOBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/TransferSearchDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Status$StatusBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Status.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Transfer$TransferBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Transfer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/TransferRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/UnitsRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/TransferSevice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/TransferSeviceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/TransferController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/UnitController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/35b8bfd7c5a4466f93f02b89d6477e28.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/377569c2bb34416f8271e4373d5dc67e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3fa829d878a54252a255deed6cc66cfa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4cdb4549f5a04ee895d6b02ed4c1c204.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4fd8ab49943946c088dc6bc208a2ca19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/8049505aaed845b8bca856e021be67ca.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/8ce56c179aaf451083918998281242c9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/ff9f1e08c2814f75ace7e0e59ec26bf6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/dto/UsserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/UnitRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UsserDTO$UsserDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UsserDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/UnitRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/RoleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/RoleServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/UnitServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/CheckPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/CheckPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/ContractType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/ContractType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Units.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Units.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/CheckPointRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/CheckPointRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/ContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/ContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/ReviewCheckPointRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/ReviewCheckPointRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/repoimpl/UnitRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/CheckPointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/CheckPointService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/MailerCheckPointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/MailerCheckPointService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/UnitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/UnitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/UnitServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/AvataUserSevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/AvataUserSevice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UnitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UnitServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/ReviewCheckPointServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/ReviewCheckPointServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UnitsSeviceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UnitServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/TransferController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/TransferController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/UserProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/RecruitApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/RecruitApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/SimpleCORSFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/SimpleCORSFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/SwaggerConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/SwaggerConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/config/WebConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/ApiResponseEntity$BodyResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/ApiResponseEntity$BodyResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/ApiResponseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/ApiResponseEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path$Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path$Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path$Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path$Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path$Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path$Auth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api$Path.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Api.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$OTP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$OTP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$Status.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$ValidationMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants$ValidationMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/DateTimeConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/core/DateTimeConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UsserDTO$UsserDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UsserDTO$UsserDTOBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UsserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/dto/UsserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Contract$ContractBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Contract$ContractBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Contract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Contract.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/ContractType$ContractTypeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/ContractType$ContractTypeBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/ContractType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/ContractType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Otp$OtpBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Otp$OtpBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Otp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Otp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/ResponseObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/ResponseObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Units$UnitsBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Units$UnitsBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Units.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Units.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/CheckPoint$CheckPointBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/CheckPoint$CheckPointBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/CheckPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/CheckPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/Status.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/User$UserBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/AuthenticateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/AuthenticateRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/OtpRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/OtpRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/RoleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/UnitRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/UnitRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/repoext/UserRepositoryExt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/repoext/UserRepositoryExt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/repoimpl/UserRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/repoimpl/UserRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/rest/controller/ChangePasswordRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/rest/controller/ChangePasswordRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/rest/controller/Fogot_pass_RestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/rest/controller/Fogot_pass_RestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/rest/controller/OtpRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/rest/controller/OtpRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/AuthoritiesConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/AuthoritiesConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/SecurityUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/SetupDataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/SetupDataLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/UserDetailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/UserDetailServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/UserNotActivatedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/UserNotActivatedException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTConfigurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTConfigurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTTokenResponse$JWTTokenResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTTokenResponse$JWTTokenResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTTokenResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/JWTTokenResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/TokenProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/security/jwt/TokenProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/AuthenticateService$OtpService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/AuthenticateService$OtpService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/AuthenticateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/AuthenticateService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/EmailSenderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/EmailSenderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/IStorageSevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/IStorageSevice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/OtpService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/OtpService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/RoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/repository/repoimpl/UnitRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/MailerCheckPointService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/MailerCheckPointService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/UnitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/UnitService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/UnitServiceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/AuthenticateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/AuthenticateServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/AvataUserSevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/AvataUserSevice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/EmailSenderSeviceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/EmailSenderSeviceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/OtpServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/OtpServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/RoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/RoleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/UnitServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/UnitServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/UnitsSeviceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/mapper/EntityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/mapper/EntityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/service/mapper/UserMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/UserProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/UserProfile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/auth/AuthenticateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/auth/AuthenticateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/vm/LoginVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/vm/LoginVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/1d0f56b8f8fd4a3b92fbab7e6146448a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/1d3a27d18c0348748e8748f5ba2c8547.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/62b127d251a64e05b5bcbdf5a3ca70c8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/77391915ddee406ea67c4aa4ebe63b06.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/c3951fa88c9b444c9b8e02eea5edff98.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/fbce05d19d3a40c9b46fb88a268f2248.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +90,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -200,16 +113,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/Mockup3/Backend/mockup1_team03_backend",
-    "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "c5a5adb4becbec9d63074dcb70a2fa03"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.itsol.recruit.RecruitApplication" />
@@ -248,9 +161,18 @@
       <workItem from="1666142897226" duration="7017000" />
       <workItem from="1666161214728" duration="8179000" />
       <workItem from="1666189040269" duration="7877000" />
+      <workItem from="1666230173999" duration="4415000" />
+      <workItem from="1666250159396" duration="2590000" />
+      <workItem from="1666276741140" duration="7568000" />
+      <workItem from="1666315775143" duration="12672000" />
+      <workItem from="1666334194439" duration="15900000" />
+      <workItem from="1666364543396" duration="4696000" />
+      <workItem from="1666417752647" duration="9443000" />
+      <workItem from="1666445845207" duration="6690000" />
       <workItem from="1666230173999" duration="2197000" />
       <workItem from="1666422114097" duration="79000" />
       <workItem from="1666423601666" duration="861000" />
+      <workItem from="1666516236517" duration="1549000" />
     </task>
     <servers />
   </component>

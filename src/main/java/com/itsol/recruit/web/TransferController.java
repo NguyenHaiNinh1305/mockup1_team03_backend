@@ -1,9 +1,11 @@
 package com.itsol.recruit.web;
 
 import com.itsol.recruit.core.Constants;
+import com.itsol.recruit.dto.SortByValuesDTO;
 import com.itsol.recruit.dto.TransferSearchDTO;
 import com.itsol.recruit.entity.*;
 import com.itsol.recruit.service.EmailSenderService;
+import com.itsol.recruit.service.NotificationSendMailService;
 import com.itsol.recruit.service.TransferSevice;
 import com.itsol.recruit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.data.domain.Sort.Order;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -34,6 +37,9 @@ public class TransferController {
     @Autowired
     EmailSenderService emailSenderService;
 
+    @Autowired
+    NotificationSendMailService notificationSendMailService;
+
     @GetMapping("/transfer/{id}")
     public ResponseEntity<ResponseObject> getTransferById(@PathVariable Long id) {
         try {
@@ -48,41 +54,50 @@ public class TransferController {
 
     @GetMapping("/transfer/list-transfer-of-user/{userId}")
     public ResponseEntity<ResponseObject> getAllTransfer(@PathVariable long userId) {
-
         List<Transfer> transfer = transferSevice.findTransferOfUser(userId);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseObject("ok", "Thành công", transfer));
-
     }
 
     @GetMapping("/transfer")
     public ResponseEntity<ResponseObject> getAllTransfer() {
+        List<Transfer> transfer = transferSevice.findAll();
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("ok", "Thành công"
+                        , transfer));
+    }
 
-            List<Transfer> transfer = transferSevice.findAll();
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(new ResponseObject("ok", "Thành công"
-                            , transfer));
+    private Sort.Direction getSortDirection(String direction) {
+        if (direction.equals("asc")) {
+            return Sort.Direction.ASC;
+        } else if (direction.equals("desc")) {
+            return Sort.Direction.DESC;
+        }
+        return Sort.Direction.ASC;
     }
 
     @PutMapping("/transfer/page")
     public ResponseEntity<ResponseObject> getPageTransfer(@RequestParam int page
-                                                        , @RequestParam Long userID
-                                                        , @RequestParam(required = true) String sortByValue
-                                                        , @RequestParam(required = true) String descAsc
-                                                        , @RequestBody TransferSearchDTO transferSearchDTO) {
+            , @RequestParam Long userID
+            , @RequestParam int size
+            , @RequestBody TransferSearchDTO transferSearchDTO) {
+        System.out.println("da vao");
         try {
             page =   page < 0? 0:page;
             Pageable pageable;
-            if (sortByValue.equals("undefined")) {
-                sortByValue = "creadDay";
+
+            List<Sort.Order> orders = new ArrayList<>();
+            List<SortByValuesDTO> sortByValuesDTOList = transferSearchDTO.getSortByValuesDTOList();
+            if(sortByValuesDTOList.isEmpty()){
+                orders.add(new Order(Sort.Direction.DESC, "creadDay") {
+                });
+            }else {
+                sortByValuesDTOList.forEach(value ->{
+                    orders.add(new Order(getSortDirection(value.getType()), value.getName()));
+                });
             }
 
-            if (descAsc.equals("desc")) {
-                pageable = PageRequest.of(page, 5, Sort.by(sortByValue).descending());
-            } else {
-                pageable = PageRequest.of(page, 5, Sort.by(sortByValue).ascending());
-            }
-
+            pageable = PageRequest.of(page, size, Sort.by(orders));
             User user = userService.findById(userID);
             Set<Role> roles = user.getRoles();
 
@@ -136,11 +151,9 @@ public class TransferController {
 
         User createUser = transfer.getCreateUser();
         Set<Role> roles = createUser.getRoles();
-
         Set<String> listRole = roles.stream().map(role -> role.getCode()).collect(Collectors.toSet());
         try {
             transfer.setId(0l);
-
             // equals unit -> false
             if (transfer.getUnitOld().equals(transfer.getUnitNew())) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -163,10 +176,7 @@ public class TransferController {
 
                 Transfer saveTransfer = transferSevice.save(transfer);
                 // send email
-                emailSenderService.sendSimpleEmail(leadUnitOld.getEmail(),
-                        "Thông báo đợt điều chuyển",
-                        createBodyEmail(saveTransfer));
-
+                notificationSendMailService.sendMailToDmTransfer(saveTransfer,leadUnitOld);
                 return ResponseEntity.status(HttpStatus.OK)
                         .body(new ResponseObject("ok", "Thanh công", saveTransfer));
             }
@@ -233,64 +243,17 @@ public class TransferController {
             Transfer updateTransfer = transferSevice.save(transfer);
             if (updateTransfer.getStatusTransfer().equals(new Status(4l, "refuse "))) {
                 User refuseUser = userService.findById(idUser);
-                emailSenderService.sendSimpleEmail(transfer.getCreateUser().getEmail(),
-                        "Thông báo từ chối đợt điều chuyển",
-                        createBodyRefuseEmail(updateTransfer, refuseUser));
+                notificationSendMailService.sendMailCancelTransfer(updateTransfer,refuseUser);
             }
-
             if (transfer.getStatusTransfer().equals(new Status(2l, "checked"))) {
-                emailSenderService.sendSimpleEmail(transfer.getDivisionManagerUnitNew().getEmail(),
-                        "Thông báo đợt điều chuyển",
-                        createBodyEmail(updateTransfer));
+                notificationSendMailService.sendMailToDmTransfer(updateTransfer
+                        ,updateTransfer.getDivisionManagerUnitNew());
             }
-
             return ResponseEntity.status(HttpStatus.OK)
                     .body(new ResponseObject("ok", "Update thành  công", updateTransfer));
-
-
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new ResponseObject("false", "Không thành công", null));
         }
     }
-
-
-    private String createBodyEmail(Transfer transfer) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Thông báo đợt điều chuyển: \n");
-        builder.append("Họ tên nhân viên: ");
-        builder.append(transfer.getTransferUser().getUserName());
-        builder.append("\nĐơn vị cũ: ");
-        builder.append(transfer.getUnitOld().getName());
-        builder.append("\nĐơn vị sẽ chuyển tới : ");
-        builder.append(transfer.getUnitNew().getName());
-        builder.append("\n Người tại đợt điều chuyển: ");
-        builder.append(transfer.getCreateUser().getName());
-        builder.append("\n Lý do chuyển: ");
-        builder.append(transfer.getReason());
-        builder.append("\n Vui lòng thực hiện xét duyệt.: ");
-        builder.append("http://localhost:4200/admin/transfer-information/" + transfer.getId());
-        return builder.toString();
-    }
-
-    private String createBodyRefuseEmail(Transfer transfer, User user) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Thông báo đợt điều chuyển bị từ chối: \n");
-        builder.append("Người từ chối: ");
-        builder.append(user.getName());
-        builder.append("\nĐơn vị : ");
-        builder.append(user.getUnit().getName());
-        builder.append("\nThông tin về đợt chuyển: \n");
-        builder.append("Họ tên nhân viên: ");
-        builder.append(transfer.getTransferUser().getUserName());
-        builder.append("\nĐơn vị cũ: ");
-        builder.append(transfer.getUnitOld().getName());
-        builder.append("\nĐơn vị sẽ chuyển tới : ");
-        builder.append(transfer.getUnitNew().getName());
-        builder.append("\n Lý do chuyển: ");
-        builder.append(transfer.getReason());
-
-        return builder.toString();
-    }
-
 }

@@ -5,6 +5,7 @@ import com.itsol.recruit.entity.Units;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -20,5 +21,6 @@ public class TransferSearchDTO {
     Date succeeDay;
     private String reason;
     private String userTransferName;
+    List<SortByValuesDTO> sortByValuesDTOList;
 
 }
