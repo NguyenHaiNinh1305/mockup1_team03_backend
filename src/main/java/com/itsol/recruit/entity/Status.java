@@ -32,6 +32,8 @@ public class Status {
         * id  6 : succeed(thành công)
         * id  7 : active
         * id  8 : deactivate
+        * id  9 : save
+        *     10 : submit
         * */
 
         @Override

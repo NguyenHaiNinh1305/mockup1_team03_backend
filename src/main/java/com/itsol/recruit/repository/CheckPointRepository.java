@@ -22,4 +22,10 @@ public interface CheckPointRepository extends JpaRepository<CheckPoint, Long> {
             "where affect_user_id = ?1 ",
             nativeQuery = true)
     List<CheckPoint> findCheckPointByAffectUser(Long idUser);
+
+    // checkpoitd qua 15 chua checked
+    @Query( value = "  SELECT * FROM check_point \n" +
+            "  where STATUS_ID = 1 and  TO_CHAR (CREATE_DATE) =  TO_CHAR ((SYSDATE -15))",
+            nativeQuery = true)
+    List<CheckPoint> findCheckPointOverDays();
 }

@@ -77,7 +77,7 @@ public class ReviewCheckPoint {
     Long divisionManagerHrReviewSalary;
 
     @Column(name = "hr_review_salary")
-    Long HrReviewSalary;
+    Long hrReviewSalary;
 
     @ManyToOne
     @JoinColumn(name = "status_dm")

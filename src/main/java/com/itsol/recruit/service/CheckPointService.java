@@ -16,6 +16,8 @@ public interface CheckPointService {
 
     List<CheckPoint> findCheckPointByAffectUser(Long idUser);
 
-    CheckPoint saveCheckPoint(CheckPoint checkPoint);
+    CheckPoint saveCheckPoint(CheckPoint checkPoint,User user);
+
+    List<CheckPoint> findCheckPointOverDays();
 
 }
