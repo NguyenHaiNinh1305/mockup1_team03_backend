@@ -42,6 +42,10 @@ public class CheckPoint {
     @JoinColumn(name = "status_id")
     Status status;
 
+    @ManyToOne
+    @JoinColumn(name = "status_User_id")
+    Status statusUser;
+
     @Column(name = "note")
     String note;
 
@@ -81,7 +85,7 @@ public class CheckPoint {
 
     //  Khả năng ứng biến với công việc mới
     @Column(name = "Ability_Improvise_New_Work")
-    String AbilityImproviseNewWork;
+    String abilityImproviseNewWork;
 
     //  Chấp hành giờ giấc
     @Column(name = "adhere_Time")

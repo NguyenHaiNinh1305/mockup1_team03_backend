@@ -95,4 +95,26 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
     @Query("SELECT u from  Users u where  u.unit = :unit and u.isLeader = :isLeader" )
     User getUserFromUnit(@Param("isLeader") Boolean isLeader,
                      @Param("unit") Units unit);
+
+    @Query( value = "WITH t1 AS (\n" +
+            "    SELECT u.id\n" +
+            "    FROM users u JOIN contracts c ON u.id =c.users_id LEFT JOIN check_point ch on u.id = ch.affect_user_id\n" +
+            "    where c.CONTRACT_TYPE_ID = 1 and ch.CREATE_DATE is NULL \n" +
+            ")\n" +
+            "SELECT c.users_id FROM t1 u JOIN contracts c ON u.id =c.users_id\n" +
+            "where c.CONTRACT_TYPE_ID =3 and c.status = 1 AND TO_CHAR (c.EXPIRATION_DATE) =  TO_CHAR (ADD_MONTHS(SYSDATE, -6)) \n" +
+            "UNION\n" +
+            "SELECT u.id FROM \n" +
+            "            users u JOIN contracts c ON u.id =c.users_id\n" +
+            "            JOIN check_point ch on u.id = ch.affect_user_id\n" +
+            "            where c.CONTRACT_TYPE_ID =3 and c.status = 1 and   TO_CHAR (ch.CREATE_DATE) =  TO_CHAR (ADD_MONTHS(SYSDATE, -12))",
+            nativeQuery = true)
+    List<Long> getUserCheckpoint();
+
+    @Query("select u from Users u where u.isActive =?1")
+    List<User> findIsActive(Boolean isActive);
+
+    @Query("SELECT u FROM Users u where u.isActive =:isAcive")
+    Page<User> findByActive(Pageable pageable, @Param("isAcive") Boolean isAcive);
+
 }

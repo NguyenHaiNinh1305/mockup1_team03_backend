@@ -26,14 +26,14 @@ public interface UserService {
     User findByPhoneNumber(String sdt);
 
     User findByCCCD(String cccd);
-    
+
     public  User save(User user);
 
     int updateUserPassword(String userName,String password);
 
     int updateUserAvatarName(String avatarName,
                              long id);
-    
+
 
     User findByUserName1(String userName);
     Page<User> sortByKey(Pageable pageable,
@@ -48,6 +48,11 @@ public interface UserService {
 
     User getUserFromUnit(Boolean isLeader, Units unit);
 
+    List<Long> getUserCheckpoint();
+
+    public List<User> findIsActive(Boolean isActive) ;
+
+    public Page<User> findByAcive(Pageable pageable, Boolean isAcive) ;
 
 
 }

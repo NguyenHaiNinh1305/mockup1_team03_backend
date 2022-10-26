@@ -50,7 +50,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public User findByEmail(String email) {
-        return userRepository.findByEmail1(email);
+        return userRepository.findByEmail1(email)
+                ;
     }
 
     @Override
@@ -91,10 +92,25 @@ public class UserServiceImpl implements UserService {
     };
 
 
-        @Override
-        public User getUserFromUnit(Boolean isLeader, Units unit) {
-            return userRepository.getUserFromUnit(isLeader,unit);
-        }
+    @Override
+    public User getUserFromUnit(Boolean isLeader, Units unit) {
+        return userRepository.getUserFromUnit(isLeader,unit);
+    }
+
+    @Override
+    public List<Long> getUserCheckpoint() {
+        return userRepository.getUserCheckpoint();
+    }
+
+    @Override
+    public List<User> findIsActive(Boolean isActive) {
+        return userRepository.findIsActive(isActive);
+    }
+
+    @Override
+    public Page<User> findByAcive(Pageable pageable, Boolean isAcive) {
+        return userRepository.findByActive(pageable,isAcive);
+    }
 
 
 }
